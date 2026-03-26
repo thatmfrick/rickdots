@@ -1,0 +1,17 @@
+@include styleModule(
+"cmodule-time",
+(
+'border-enabled': true,
+'border-radius': 0.75em,
+'border-width': 2px,
+'border-color': #ffffff,
+'text-color': #ffffff,
+'icon-color': #ffffff,
+'icon-size': 1em,
+'label-font-size': 0.95em,
+'inner-spacing': 0.5em,
+'padding': 0.3em,
+'opacity': 1,
+'background': #000000ff
+)
+);
