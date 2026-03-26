@@ -1,0 +1,10 @@
+{
+  "custom/time": {
+    "icon": "󰔟",
+    "label": "{time}",
+    "tooltip": "It's: {time}",
+    "execute": "LC_TIME=en_US.UTF-8 date +'{\"time\": \"%I:%M %p\"}'",
+    "interval": 1000,
+    "hideOnEmpty": false
+  }
+}

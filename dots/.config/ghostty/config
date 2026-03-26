@@ -1,0 +1,8 @@
+theme = Kanagawa Dragon
+font-family = CaskaydiaCove Nerd Font
+font-size = 14
+gtk-titlebar = false
+cursor-opacity = 0.5
+cursor-color = #8094B4
+cursor-style = block
+shell-integration-features = no-cursor
