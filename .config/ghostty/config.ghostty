@@ -1,0 +1,12 @@
+theme = Gruvbox Dark
+font-family = "CaskaydiaCove Nerd Font"
+font-style = bold
+font-size = 16
+gtk-titlebar = false
+cursor-opacity = 0.5
+cursor-color = #8094B4
+cursor-style = block
+background-opacity = 0.9
+shell-integration-features = no-cursor
+link-previews = true
+custom-shader = shaders/sonic_boom_cursor.glsl
