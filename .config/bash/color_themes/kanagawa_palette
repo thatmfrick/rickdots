@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# vim: set ft=bash:
+# shellcheck disable=SC2034
+
+# Kanagawa color palette — bash truecolor (24-bit) escape sequences
+FUJI_WHITE=$'\e[38;2;220;215;186m'     # #DCD7BA - Default foreground
+OLD_WHITE=$'\e[38;2;200;192;147m'      # #C8C093 - Dark foreground (statuslines)
+SUMI_INK0=$'\e[38;2;22;22;29m'         # #16161D - Dark background (statuslines/floats)
+SUMI_INK1=$'\e[38;2;31;31;40m'         # #1F1F28 - Default background
+SUMI_INK2=$'\e[38;2;42;42;55m'         # #2A2A37 - Lighter background (colorcolumn, folds)
+SUMI_INK3=$'\e[38;2;54;54;70m'         # #363646 - Lighter background (cursorline)
+SUMI_INK4=$'\e[38;2;84;84;109m'        # #54546D - Darker foreground (line numbers, etc)
+WAVE_BLUE1=$'\e[38;2;34;50;73m'        # #223249 - Popup bg, visual selection bg
+WAVE_BLUE2=$'\e[38;2;45;79;103m'       # #2D4F67 - Popup selection bg, search bg
+WINTER_GREEN=$'\e[38;2;43;51;40m'      # #2B3328 - Diff Add (background)
+WINTER_YELLOW=$'\e[38;2;73;68;60m'     # #49443C - Diff Change (background)
+WINTER_RED=$'\e[38;2;67;36;43m'        # #43242B - Diff Deleted (background)
+WINTER_BLUE=$'\e[38;2;37;37;53m'       # #252535 - Diff Line (background)
+AUTUMN_GREEN=$'\e[38;2;118;148;106m'   # #76946A - Git Add
+AUTUMN_RED=$'\e[38;2;195;64;67m'       # #C34043 - Git Delete
+AUTUMN_YELLOW=$'\e[38;2;220;165;97m'   # #DCA561 - Git Change
+SAMURAI_RED=$'\e[38;2;232;36;36m'      # #E82424 - Diagnostic Error
+RONIN_YELLOW=$'\e[38;2;255;158;59m'    # #FF9E3B - Diagnostic Warning
+WAVE_AQUA1=$'\e[38;2;106;149;137m'     # #6A9589 - Diagnostic Info
+DRAGON_BLUE=$'\e[38;2;101;133;148m'    # #658594 - Diagnostic Hint
+DRAGON_BLUE1=$'\e[38;2;128;148;180m'   # #8094B4 - Diagnostic Hint
+FUJI_GRAY=$'\e[38;2;114;113;105m'      # #727169 - Comments
+SPRING_VIOLET1=$'\e[38;2;147;138;169m' # #938AA9 - Light foreground
+ONI_VIOLET=$'\e[38;2;149;127;184m'     # #957FB8 - Statements and keywords
+CRYSTAL_BLUE=$'\e[38;2;126;156;216m'   # #7E9CD8 - Functions and titles
+SPRING_VIOLET2=$'\e[38;2;156;171;202m' # #9CABCA - Brackets and punctuation
+SPRING_BLUE=$'\e[38;2;127;180;202m'    # #7FB4CA - Specials and builtin functions
+LIGHT_BLUE=$'\e[38;2;163;212;213m'     # #A3D4D5 - Not used
+WAVE_AQUA2=$'\e[38;2;122;168;159m'     # #7AA89F - Types
+SPRING_GREEN=$'\e[38;2;152;187;108m'   # #98BB6C - Strings
+BOAT_YELLOW1=$'\e[38;2;147;128;86m'    # #938056 - Not used
+BOAT_YELLOW2=$'\e[38;2;192;163;110m'   # #C0A36E - Operators, RegEx
+CARP_YELLOW=$'\e[38;2;230;195;132m'    # #E6C384 - Identifiers
+SAKURA_PINK=$'\e[38;2;210;126;153m'    # #D27E99 - Numbers
+WAVE_RED=$'\e[38;2;228;104;118m'       # #E46876 - Standout specials 1 (builtin vars)
+PEACH_RED=$'\e[38;2;255;93;98m'        # #FF5D62 - Standout specials 2 (exceptions/return)
+SURIMI_ORANGE=$'\e[38;2;255;160;102m'  # #FFA066 - Constants, imports, booleans
+KATANA_GRAY=$'\e[38;2;113;124;124m'    # #717C7C - Deprecated
+
+BOLD=$'\e[1m'
+RESET=$'\e[0m'
+
+#ln -sf <palette> theme

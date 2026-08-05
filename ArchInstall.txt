@@ -1,17 +1,18 @@
 mkdir -p ~/Documents/projects
-sudo pacman -S --noconfirm --needed yt-dlp zip kdeconnect nvim tmux gnome-keyring libsecret niri ly flatpak gimp audacity steam ddcutil power-profiles-daemon wlsunset cliphist evolution-data-server ttf-cascadia-code-nerd ttf-cascadia-mono-nerd zsh fastfetch eza ghostty systemd git dbus libinih gcc pkgconf yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick bat proton-vpn-cli webkit2gtk-4.1 gtk3 vlc gtk4 webkitgtk-6.0 time hplip system-config-printer cups nmap dialog stress-ng
+
+sudo pacman -S --noconfirm --needed yt-dlp zip kdeconnect nvim tmux gnome-keyring libsecret niri ly flatpak gimp audacity steam ddcutil power-profiles-daemon wlsunset cliphist evolution-data-server ttf-cascadia-code-nerd ttf-cascadia-mono-nerd fastfetch eza ghostty systemd git dbus libinih gcc pkgconf yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick bat proton-vpn-cli webkit2gtk-4.1 gtk3 vlc gtk4 webkitgtk-6.0 time hplip system-config-printer cups nmap dialog stress-ng git-lfs gpu-screen-recorder xdg-desktop-portal-gnome xdg-desktop-portal xdg-desktop-portal-gtk gnome-keyring fbset
 
 sudo pacman -S --noconfirm --needed base-devel npm clang cmake ninja gdb valgrind python python-pip python-pipx python-virtualenv python-mutagen dkms docker docker-compose lua-language-server shellcheck
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 curl -sS https://starship.rs/install.sh | sh
 
-paru -S --noconfirm --needed noctalia-shell adb github-cli proton-mail proton-pass
+paru -S --noconfirm --needed noctalia-shell adb github-cli gpu-screen-recorder-gtk ffmpeg libsndfile
 
 KDE_CONNECT_FIX="
 sudo ufw allow 1714:1764/tcp
 sudo ufw allow 1714:1764/udp
 "
+
 DOCKER_SETUP="
 modprobe kvm
 modprobe kvm_amd
@@ -23,11 +24,5 @@ sudo usermod -aG docker $USER
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
 "
+
 flatpak install -y app.zen_browser.zen md.Obsidian.Obsidian net.davidotek.pupgui2
-
-wget https://raw.githubusercontent.com/webview/webview/master/webview.h -O webview.h
-
-git clone https://github.com/thatmrick/rickdots.git ~/Documents/projects/
-
-sudo pacman -Syy # mirro errors
-sudo systemctl enable --now cups
