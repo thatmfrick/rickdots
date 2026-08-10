@@ -11,13 +11,15 @@ lst() {
     eza -1 --icons=auto -T -L "$depth" "$arg"
 }
 
-#yazy
+#yazi
 y() {
-    local tmp
-    tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    local tmp cwd
+    tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
     command yazi "$@" --cwd-file="$tmp"
     IFS= read -r -d '' cwd <"$tmp"
-    [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+    if [ "$cwd" != "$PWD" ] && [ -d "$cwd" ]; then
+        builtin cd -- "$cwd" || echo "cd failed" >&2
+    fi
     command rm -f -- "$tmp"
 }
 

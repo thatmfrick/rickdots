@@ -19,8 +19,10 @@ vim.opt.showcmd = false
 vim.opt.cmdheight = 0
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+-- vim.opt.spell = true
+-- vim.opt.spelllang = "en_us"
 
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.breakindent = true
-vim.opt.winborder = 'rounded'
+vim.opt.winborder = "rounded"

@@ -20,8 +20,9 @@ require("plugins.code.treesitter")
 require("plugins.code.nvim_cmp")
 require("plugins.code.diagnostic")
 require("plugins.code.lsp")
+require("render-markdown").setup({})
 
---utils
+-- utils
 require("plugins.utils.nvim_tree")
 require("plugins.utils.live_server")
 require("plugins.utils.images")
