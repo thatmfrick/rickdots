@@ -1,0 +1,111 @@
+#!/usr/bin/env bash
+
+if [[ "$EUID" -ne 0 ]]; then
+    exec sudo bash "$0" "$@"
+fi
+
+pacman -Syyu --noconfirm
+
+mkdir -p ~/.config/ ~/dev/
+
+essential_setup() {
+    pacman -S --needed --noconfirm \
+        git cmake dpkg dkms linux-headers stow unzip wget bluez bluez-utils \
+        pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber \
+        ttf-cascadia-code-nerd gpu-screen-recorder kdeconnect flatpak \
+        chafa networkmanager toilet docker docker-compose \
+        openssh ethtool iw iwd arp-scan nmap wireshark-cli wireshark-qt
+
+    systemctl enable --now sshd
+    systemctl enable --now bluetooth
+    systemctl enable --now NetworkManager
+    systemctl enable --now docker.service
+    systemctl --user enable --now pipewire pipewire.service wireplumber.service
+    groupadd docker 2>/dev/null
+    usermod -aG docker "$USER"
+    gpasswd -a "$USER" wireshark
+    su - "$USER" #reload groups
+}
+
+bash_setup() {
+    sudo pacman -S --needed --noconfirm \
+        shellcheck bash-completion
+    cp -rf .config/bash .config/
+    cp .bashrc ~
+    # source at exit
+}
+
+eza_setup() {
+    pacman -S --needed --noconfirm eza
+    cp -rf .config/eza ~/.config
+}
+
+fuzzel_setup() {
+    pacman -S --needed --noconfirm fuzzel
+    cp -rf .config/fuzzel ~/.config
+}
+
+de_setup() {
+    pacman -S --needed --noconfirm niri noctalia \
+        xwayland-satellite \
+        xdg-desktop-portal-gnome xdg-desktop-portal-gtk \
+        cava ddcutil power-profiles-daemon brightnessctl wl-clipboard hyprpicker
+    cp -rf .config/niri ~/.config
+}
+
+paru_setup() {
+    pacman -S --needed --noconfirm base-devel
+    git clone https://aur.archlinux.org/paru.git ~/dev
+    (cd ~/dev/paru && makepkg -si)
+}
+
+ghostty_setup() {
+    pacman -S --needed --noconfirm ghostty
+    cp -rf .config/ghostty ~/.config
+    git clone https://github.com/0xhckr/ghostty-shaders.git ~/.config/ghostty/
+}
+
+ly_setup() {
+    pacman -S --needed --noconfirm ly
+    systemctl disable lightdm.service #or others...
+    systemctl enable ly@tty2.service
+    systemctl disable getty@tty2.service
+}
+
+nvim_setup() {
+    # required for telescope-fzf meson and treesitter
+    pacman -S --needed --noconfirm nvim fzf npm tree-sitter-cli
+    cp -rf .config/nvim ~/.config/
+}
+
+tmux_setup() {
+    pacman -S --needed --noconfirm tmux
+    cp -rf .config/tmux ~/.config/
+    echo "Installing tmux plugins"
+    ~/.config/tmux/plugins/tpm/bin/install_plugins
+}
+
+yazi_setup() {
+    pacman -S --needed --noconfirm yazi \
+        ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick
+    cp -rf .config/yazi ~/.config
+}
+
+apps_setup() {
+    paru -S --noconfirm --needed zen-browser-bin proton-vpn-cli
+    flatpak install flathub md.obsidian.Obsidian
+    pacman -S vlc yt-dlp audacity
+}
+
+essential_setup
+de_setup
+paru_setup
+ly_setup
+bash_setup
+fuzzel_setup
+eza_setup
+ghostty_setup
+nvim_setup
+tmux_setup
+yazi_setup
+apps_setup

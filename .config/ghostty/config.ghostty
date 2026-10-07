@@ -1,0 +1,14 @@
+theme = kanagawa-dragon
+font-family = "CaskaydiaCove Nerd Font"
+font-style = bold
+font-size = 14
+gtk-titlebar = false
+background-opacity= 0.9
+background = 000000
+cursor-opacity = 0.5
+cursor-style = block
+shell-integration-features = no-cursor
+link-previews = true
+window-decoration = false
+custom-shader = ./ghostty-shaders/bloom.glsl
+custom-shader = ./ghostty-shaders/cursor_blaze.glsl
