@@ -6,13 +6,20 @@ vim.pack.add({
     "https://github.com/folke/todo-comments.nvim",
     "https://github.com/aznhe21/actions-preview.nvim",
     "https://github.com/L3MON4D3/LuaSnip",
-    "https://github.com/MunifTanjim/nui.nvim",
     "https://github.com/rafamadriz/friendly-snippets",
     "https://github.com/lewis6991/gitsigns.nvim",
     "https://github.com/catgoose/nvim-colorizer.lua",
     "https://github.com/nvim-tree/nvim-web-devicons",
     "https://github.com/mason-org/mason-lspconfig.nvim",
     "https://github.com/onsails/lspkind.nvim",
+    "https://github.com/MunifTanjim/nui.nvim",
+
+    --cmp
+    "https://github.com/hrsh7th/nvim-cmp",
+    "https://github.com/hrsh7th/cmp-nvim-lsp",
+    "https://github.com/hrsh7th/cmp-buffer",
+    "https://github.com/hrsh7th/cmp-path",
+    "https://github.com/hrsh7th/cmp-cmdline",
 
     -- ui
     "https://github.com/rebelot/kanagawa.nvim",
@@ -21,8 +28,8 @@ vim.pack.add({
     "https://github.com/echasnovski/mini.indentscope",
     "https://github.com/echasnovski/mini.icons",
     "https://github.com/karb94/neoscroll.nvim",
-    "https://github.com/folke/noice.nvim",
     "https://github.com/willothy/nvim-cokeline",
+    "https://github.com/folke/noice.nvim",
     "https://github.com/mawkler/modicator.nvim",
     "https://github.com/nvim-mini/mini.starter",
 
@@ -35,7 +42,6 @@ vim.pack.add({
     "https://github.com/MeanderingProgrammer/render-markdown.nvim",
     "https://github.com/rachartier/tiny-code-action.nvim",
     "https://github.com/rachartier/tiny-inline-diagnostic.nvim",
-    "https://github.com/rachartier/tiny-cmdline.nvim",
 
     -- lsp
     "https://github.com/neovim/nvim-lspconfig",

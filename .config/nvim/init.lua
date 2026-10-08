@@ -4,7 +4,7 @@ require("config.keymaps")
 require("config.plugins")
 
 --ui
-require("fidget").setup({})
+require("fidget").setup()
 require("plugins.ui.colorscheme")
 require("neoscroll").setup()
 require("plugins.ui.noice")
@@ -22,8 +22,12 @@ require("colorizer").setup()
 require("plugins.code.autopairs")
 require("plugins.code.diagnostic")
 require("plugins.code.treesitter")
-require("render-markdown").setup({})
+require("render-markdown").setup()
 require("plugins.code.treesj")
+require("hlslens").setup()
+
+--cmp
+require("plugins.code.cmp")
 
 --lsp
 require("plugins.code.lsp")

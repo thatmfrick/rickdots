@@ -1,1 +1,5 @@
 .config/nvim/nvim-pack-lock.json
+.config/tmux/plugins/tmux-pain-control
+.config/tmux/plugins/tmux-sensible
+.config/tmux/plugins/tmux-yank
+.config/tmux/plugins/vim-tmux-navigator
