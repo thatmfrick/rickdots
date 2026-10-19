@@ -38,5 +38,6 @@ require("plugins.utils.live_server")
 require("plugins.utils.images")
 require("hlslens").setup()
 require("plugins.utils.telescope")
+require 'hex'.setup()
 
 -- tree-sitter-cli -> install with your distro package-manager

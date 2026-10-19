@@ -12,7 +12,7 @@ HISTFILESIZE=20000
 HISTCONTROL=ignoredups:erasedups
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-export DISPLAY=:0
+# export DISPLAY=:0
 export EDITOR=nvim
 export EZA_CONFIG_DIR="$HOME/.config/eza"
 

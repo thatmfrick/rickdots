@@ -4,9 +4,9 @@ if [[ "$EUID" -ne 0 ]]; then
     exec sudo bash "$0" "$@"
 fi
 
-pacman -Syyu --noconfirm
+export EDITOR=nvim
 
-mkdir -p ~/.config/ ~/dev/
+mkdir -p ~/.config/ 2>/dev/null
 
 essential_setup() {
     pacman -S --needed --noconfirm \
@@ -14,7 +14,8 @@ essential_setup() {
         pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber \
         ttf-cascadia-code-nerd gpu-screen-recorder kdeconnect flatpak \
         chafa networkmanager toilet docker docker-compose \
-        openssh ethtool iw iwd arp-scan nmap wireshark-cli wireshark-qt
+        openssh ethtool iw arp-scan nmap wireshark-cli wireshark-qt \
+        tcpdump traceroute zip xorg-xauth wpa_supplicant
 
     systemctl enable --now sshd
     systemctl enable --now bluetooth
@@ -75,6 +76,7 @@ ly_setup() {
 nvim_setup() {
     # required for telescope-fzf meson and treesitter
     pacman -S --needed --noconfirm nvim fzf npm tree-sitter-cli
+    paru -S libtexprintf
     cp -rf .config/nvim ~/.config/
 }
 
@@ -91,21 +93,23 @@ yazi_setup() {
     cp -rf .config/yazi ~/.config
 }
 
-apps_setup() {
-    paru -S --noconfirm --needed zen-browser-bin proton-vpn-cli
-    flatpak install flathub md.obsidian.Obsidian
-    pacman -S vlc yt-dlp audacity
+enable_multilib() {
+    sudoedit /etc/pacman.conf
+    pacman -Syyu
 }
 
-essential_setup
-de_setup
-paru_setup
-ly_setup
-bash_setup
-fuzzel_setup
-eza_setup
-ghostty_setup
-nvim_setup
-tmux_setup
-yazi_setup
-apps_setup
+apps_setup() {
+    paru -S --noconfirm --needed zen-browser-bin proton-vpn-cli winboat-bin
+    flatpak install flathub md.obsidian.Obsidian
+    pacman -S vlc yt-dlp audacity steam winetricks
+}
+
+gaming() {
+    enable_multilib
+    pacman -S --needed --noconfirm steam joystick
+    flatpak install org.ppsspp.PPSSPP net.pcsx2.PCSX2 net.rpcs3.RPCS3
+    paru -S game-devices-udev --noconfirm
+    udevadm control --reload-rules && udevadm trigger
+}
+
+enable_multilib

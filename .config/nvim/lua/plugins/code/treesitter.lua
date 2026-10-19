@@ -7,7 +7,6 @@ local languages = {
     "gowork",
     "gosum",
     "graphql",
-    "html",
     "javascript",
     "jsdoc",
     "json",
@@ -25,6 +24,7 @@ local languages = {
     "yaml",
     "regex",
     "latex",
+    "html"
 }
 
 local installed = require("nvim-treesitter.config").get_installed()

@@ -10,9 +10,32 @@
   - niri
   - fastfetch
   - ghostty
-<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/07dc2570-725a-4132-aee1-8fcc2c089dc3" />
 
 ## Infos
 
 > Redirect niri warnings by adding: `systemctl --user import-environment >/dev/null 3>&1` in `/usr/bin/niri-session`.
 - (or launching the session via a display manager like ly with custom exec parameters)
+
+---
+
+```bash
+nmcli d wifi
+nmcli d wifi connect <BSSID aka NET MAC> --ask
+```
+
+- After connectiong if `ping` shows lags than check:
+> iw dev wlan0 get power_save
+
+- If setted to on, fix it by running:
+> `sudoedit /etc/NetworkManager/NetworkManager.conf`
+- Add those lines:
+
+```bash
+[device]
+wifi.backend=wpa_supplicant
+
+[connection]
+wifi.powersave=2
+```
+
+- `sudo systemctl restart NetworkManager`
