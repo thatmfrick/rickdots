@@ -22,6 +22,7 @@ require("mason-tool-installer").setup({
         "bash-language-server",
         "pyright",
         "ast-grep",
+        "marksman",
     },
 
     auto_update = true,

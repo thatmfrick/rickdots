@@ -1,0 +1,42 @@
+BOLD=$'\e[1m'
+RESET=$'\e[0m'
+
+IFS='|' read -r LINE_C EXITCODE_C USER_C HOST_C CWD_C BRANCH_C PROMPT_C <<<"$(prompt_theme)"
+
+# top line
+PS1=$'\[${LINE_C}\]┏━ \[${RESET}\]'
+
+# exit code
+PS1+='$(ret=$?;(($ret!=0)) && echo "\[${EXITCODE_C}\]($ret) \[${RESET}\]")'
+
+# username
+PS1+='\[${USER_C}\]\[${BOLD}\]$(((UID==0)) && echo "\[${USER_C}\]")\u\[${RESET}\] on '
+
+# hostname
+PS1+='\[${HOST_C}\]\h\[${RESET}\] in '
+
+# cwd
+PS1+='\[${CWD_C}\]\w\[${RESET}\]'
+
+# git branch
+PS1+='$(branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null); [[ -n $branch ]] && echo " - ${BRANCH_C}\] $branch\[${RESET}\]")'
+
+# bottom line
+
+PS1+=$'\n\[${LINE_C}\]┃ \[${RESET}\]'
+PS1+=$'\n\[${LINE_C}\]┗━ \[${RESET}\]'
+PS1+=$'\[${PROMPT_C}\]\[${BOLD}\]$ \[${RESET}\]'
+
+_prompt_command() {
+    printf '\n'
+    local user=$USER
+    local host=${HOSTNAME%%.*}
+    local pwd=${PWD/#$HOME/\~}
+    local ssh=
+    [[ -n $SSH_CLIENT ]] && ssh='[ssh] '
+    printf "\033]0;%s%s@%s:%s\007" "$ssh" "$user" "$host" "$pwd"
+}
+
+PROMPT_DIRTRIM=3
+
+PROMPT_COMMAND='_prompt_command'

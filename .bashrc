@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-source "$HOME/.config/bash/color_themes/theme"
-source "$HOME/.config/bash/cmd_prompt.sh"
-source "$HOME/.config/bash/functions.sh"
-source "$HOME/.config/bash/manpages.sh"
+source "$HOME/.config/bash/theme"
+source "$HOME/.config/bash/cmd_prompt"
+source "$HOME/.config/bash/functions"
+source "$HOME/.config/bash/manpages"
 
 #History tweaks
 shopt -s histappend
