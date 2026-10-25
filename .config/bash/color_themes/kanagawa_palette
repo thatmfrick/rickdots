@@ -1,9 +1,8 @@
-#!/usr/bin/env bash
-
 # vim: set ft=bash:
 # shellcheck disable=SC2034
 
 # Kanagawa color palette — bash truecolor (24-bit) escape sequences
+
 FUJI_WHITE=$'\e[38;2;220;215;186m'     # #DCD7BA - Default foreground
 OLD_WHITE=$'\e[38;2;200;192;147m'      # #C8C093 - Dark foreground (statuslines)
 SUMI_INK0=$'\e[38;2;22;22;29m'         # #16161D - Dark background (statuslines/floats)
@@ -42,8 +41,3 @@ WAVE_RED=$'\e[38;2;228;104;118m'       # #E46876 - Standout specials 1 (builtin 
 PEACH_RED=$'\e[38;2;255;93;98m'        # #FF5D62 - Standout specials 2 (exceptions/return)
 SURIMI_ORANGE=$'\e[38;2;255;160;102m'  # #FFA066 - Constants, imports, booleans
 KATANA_GRAY=$'\e[38;2;113;124;124m'    # #717C7C - Deprecated
-
-BOLD=$'\e[1m'
-RESET=$'\e[0m'
-
-#ln -sf <palette> theme

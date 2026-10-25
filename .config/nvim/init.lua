@@ -5,7 +5,7 @@ require("config.plugins")
 
 --ui
 require("fidget").setup()
-require("plugins.ui.colorscheme")
+require("plugins.ui.colorschemes.kanagawa")
 require("neoscroll").setup()
 require("plugins.ui.noice")
 require("plugins.ui.indent_blanklines")
@@ -39,5 +39,4 @@ require("plugins.utils.images")
 require("hlslens").setup()
 require("plugins.utils.telescope")
 require 'hex'.setup()
-
--- tree-sitter-cli -> install with your distro package-manager
+require("plugins.utils.obsidian")

@@ -15,14 +15,15 @@ vim.pack.add({
     "https://github.com/MunifTanjim/nui.nvim",
 
     --cmp
-    "https://github.com/hrsh7th/nvim-cmp",
-    "https://github.com/hrsh7th/cmp-nvim-lsp",
-    "https://github.com/hrsh7th/cmp-buffer",
-    "https://github.com/hrsh7th/cmp-path",
-    "https://github.com/hrsh7th/cmp-cmdline",
+    "https://github.com/saghen/blink.lib",
+    "https://github.com/saghen/blink.cmp",
+
+    -- color schemes
+    "https://github.com/rebelot/kanagawa.nvim",
+    "https://github.com/ember-theme/nvim",
+    "https://github.com/ellisonleao/gruvbox.nvim",
 
     -- ui
-    "https://github.com/rebelot/kanagawa.nvim",
     "https://github.com/nvim-lualine/lualine.nvim",
     "https://github.com/lukas-reineke/indent-blankline.nvim",
     "https://github.com/echasnovski/mini.indentscope",
@@ -62,4 +63,5 @@ vim.pack.add({
     "https://github.com/nvim-telescope/telescope-ui-select.nvim",
     "https://github.com/nvim-telescope/telescope-frecency.nvim",
     "https://github.com/RaafatTurki/hex.nvim",
+    "https://github.com/obsidian-nvim/obsidian.nvim",
 }, { load = true })

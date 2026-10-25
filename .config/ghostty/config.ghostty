@@ -1,4 +1,7 @@
 theme = kanagawa-dragon
+# theme = ember
+# theme = Gruvbox Dark Hard
+
 font-family = "CaskaydiaCove Nerd Font"
 font-style = bold
 font-size = 14
