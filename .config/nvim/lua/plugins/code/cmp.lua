@@ -2,14 +2,19 @@ local cmp = require('blink.cmp')
 cmp.build():pwait()
 
 cmp.setup {
+    appearance = {
+        nerd_font_variant = "mono",
+    },
+    signature = { enabled = true },
+
+    keymap = { preset = "enter" },
+
     sources = {
-        -- NOTE: no need if you don't have custom markdown stuff
+        default = { "lsp", "path", "snippets", "buffer" },
+
         per_filetype = {
-            markdown = {
-                "lsp",                   -- NOTE: explicitly enable lsp
-                inherit_defaults = true, -- NOTE: if your defaults include lsp
-                -- "dictionary",
-            },
+            markdown = { "lsp", "path", "snippets" },
         },
     },
+
 }

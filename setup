@@ -76,7 +76,7 @@ ly_setup() {
 
 nvim_setup() {
     # required for telescope-fzf meson and treesitter
-    pacman -S --needed --noconfirm nvim fzf npm tree-sitter-cli cargo
+    pacman -S --needed --noconfirm nvim fzf npm tree-sitter-cli cargo inotify-tools
     paru -S libtexprintf
     cp -rf .config/nvim ~/.config/
 }

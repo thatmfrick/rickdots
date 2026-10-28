@@ -96,10 +96,10 @@ output "DP-1" {
 
 output "DP-2" {
         mode "1920x1080"
-        // position x=320 y=1440
-        // transform "90"
+        scale 1.2
+        position x=2560 y=-240
+        transform "270"
         // position x=-920 y=1440
-        position x=320 y=1440
         variable-refresh-rate on-demand=true
 }
 

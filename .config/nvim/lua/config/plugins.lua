@@ -63,5 +63,4 @@ vim.pack.add({
     "https://github.com/nvim-telescope/telescope-ui-select.nvim",
     "https://github.com/nvim-telescope/telescope-frecency.nvim",
     "https://github.com/RaafatTurki/hex.nvim",
-    "https://github.com/obsidian-nvim/obsidian.nvim",
 }, { load = true })

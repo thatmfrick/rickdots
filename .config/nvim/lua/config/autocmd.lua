@@ -1,11 +1,20 @@
 vim.api.nvim_create_autocmd("PackChanged", {
-    desc = "Build telescope-fzf-native after install/update",
-    group = vim.api.nvim_create_augroup("telescope_fzf_build", { clear = true }),
+    desc = "Build native dependencies after install/update",
+    group = vim.api.nvim_create_augroup("native_plugins_build", { clear = true }),
     callback = function(ev)
         local name, kind = ev.data.spec.name, ev.data.kind
-        if name == "telescope-fzf-native.nvim" and (kind == "install" or kind == "update") then
+
+        if kind == "install" or kind == "update" then
             if vim.fn.executable("make") == 1 then
-                vim.system({ "make" }, { cwd = ev.data.path }):wait()
+                if name == "telescope-fzf-native.nvim" then
+                    vim.system({ "make" }, { cwd = ev.data.path }):wait()
+                    vim.notify("Compilazione di telescope-fzf-native completata!", vim.log.levels.INFO)
+                elseif name == "LuaSnip" then
+                    vim.system({ "make", "install_jsregexp" }, { cwd = ev.data.path }):wait()
+                    vim.notify("LuaSnip (jsregexp) compilation completed!", vim.log.levels.INFO)
+                end
+            else
+                vim.notify("Unable to compile 'make' not installed", vim.log.levels.WARN)
             end
         end
     end,
